@@ -6,7 +6,7 @@ class Navbar extends Component {
   // static contextType = ThemeContext;
   render() {
     return (
-      <AuthContext.Consumer>{(authContext) => (
+      <AuthContext>{(authContext) => (
         <ThemeContext.Consumer>{(themeContext) => {
           const { isAuthenticated, toggleAuth } = authContext;
           const { isLightTheme, light, dark } = themeContext;
@@ -15,7 +15,7 @@ class Navbar extends Component {
             <nav style={{ background: theme.ui, color: theme.syntax }}>
               <h1>Context App</h1>
               <div onClick={() => toggleAuth()}>
-                {isAuthenticated ? 'Logged in' : 'Logged out'}
+                { isAuthenticated ? 'Logged in' : 'Logged out' }
               </div>
               <ul>
                 <li>Home</li>
@@ -25,9 +25,9 @@ class Navbar extends Component {
             </nav>
           )
         }}</ThemeContext.Consumer>
-      )}</AuthContext.Consumer>
+      )}</AuthContext>
     );
   }
 }
-
+ 
 export default Navbar;
